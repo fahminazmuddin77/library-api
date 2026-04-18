@@ -28,6 +28,10 @@ CREATE TABLE books (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+-- INDEX 
+CREATE INDEX idx_books_category_id ON books(category_id);
+CREATE INDEX idx_books_user_id ON books(user_id);
+
 -- SAMPLE USERS
 INSERT INTO users (name, email) VALUES
 ('Fahmi', 'fahmi@email.com'),
