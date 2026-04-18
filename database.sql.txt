@@ -1,0 +1,53 @@
+-- USERS
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CATEGORIES
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- BOOKS
+CREATE TABLE books (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(100),
+    category_id INT,
+    user_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- SAMPLE USERS
+INSERT INTO users (name, email) VALUES
+('Fahmi', 'fahmi@email.com'),
+('Budi', 'budi@email.com'),
+('Siti', 'siti@email.com'),
+('Andi', 'andi@email.com'),
+('Rina', 'rina@email.com');
+
+-- SAMPLE CATEGORIES
+INSERT INTO categories (name) VALUES
+('Programming'),
+('Database'),
+('Networking'),
+('AI'),
+('Web Development');
+
+-- SAMPLE BOOKS
+INSERT INTO books (title, author, category_id, user_id) VALUES
+('Belajar C#', 'John Doe', 1, 1),
+('Dasar SQL', 'Jane Doe', 2, 2),
+('Jaringan Komputer', 'Alex', 3, 3),
+('AI Basics', 'Elon', 4, 4),
+('Web API', 'Mark', 5, 5);
