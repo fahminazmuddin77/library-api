@@ -57,8 +57,7 @@ Buka file appsettings.json, lalu ubah connection string:
 
 ### 5. Akses API (Swagger)
 
-[https://localhost:xxxx/swagger](https://localhost:xxxx/swagger)
-
+[[https://localhost:xxxx/swagger](https://localhost:7000/swagger/index.html)
 
 
 ## Daftar Endpoint API
